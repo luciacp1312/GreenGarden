@@ -1,0 +1,25 @@
+{% extends "base.html" %} {% block title %}Sign Up{% endblock %}
+  {% block content %}
+  <form method="POST">
+    <h3 align="center">Sign up</h3>
+    <div class="form-group"> <!-- Bootstrap class for forms using CSS for the style -->
+      <label for="email">Email address</label>
+      <input type="email" class="form-control" style="background-color:#EAF5EB" id="email" name="email" placeholder="Enter email"/>
+    </div>
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input type="text" class="form-control" style="background-color:#EAF5EB" id="username" name="username" placeholder="Enter an username"/>
+    </div>
+    <div class="form-group">
+      <label for="pass1">Password</label>
+      <input type="password" class="form-control" style="background-color:#EAF5EB" id="pass1" name="pass1" placeholder="Enter password"/>
+    </div>
+    <div class="form-group">
+      <label for="pass2">Password confirmation</label>
+      <input type="password" class="form-control" style="background-color:#EAF5EB" id="pass2" name="pass2" placeholder="Confirm password"/>
+    </div>
+    <br/> <!-- Break line to separate the button -->
+    <button type="submit" class="btn" style="background-color:#254D32; color:white">Sign up</button>
+  </form>
+  {% endblock %}
+  
