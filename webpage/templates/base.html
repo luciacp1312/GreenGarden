@@ -41,7 +41,11 @@
       <div class="collapse navbar-collapse" id="navbar"> <!-- We could change the color of the button with btn-dark -->
         <div class="navbar-nav">
           {% if user.is_authenticated %} <!-- This are the pages we want to show in case the user is logged -->
+          <a class="nav-item nav-link" id="freqQuest" href="/frequent_questions">Frequent Questions</a>
+          <a class="nav-item nav-link" id="vegInfo" href="/vegetables_info">Vegetables Info</a>
           <a class="nav-item nav-link" id="home" href="/">General Information</a>
+          <a class="nav-item nav-link" id="volunteers" href="/volunteers">Volunteers</a>
+          <a class="nav-item nav-link" id="partnerships" href="/partnerships">Partnerships</a>
           <a class="nav-item nav-link" id="logout" href="/logout">Logout</a>
           {% else %} <!-- This are the pages we want to show in case the user is NOT logged -->
           <a class="nav-item nav-link" id="login" href="/login">Login</a>
