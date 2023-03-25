@@ -34,3 +34,9 @@ def volunteers():
 def partnerships():
 
     return render_template("partnerships.html", user=current_user)
+
+@views.route('/terms', methods=['GET', 'POST'])
+@login_required
+def terms():
+
+    return render_template("terms.html", user=current_user)
