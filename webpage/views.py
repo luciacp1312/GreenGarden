@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, request, flash
 from flask_login import login_required, current_user
-from .database import Volunteer
+from .database import Volunteer, User
 #from .database import classIWantToImport
 from . import db
 import re
@@ -29,24 +29,22 @@ def veg_info():
 @login_required
 def volunteers():
     if request.method == 'POST':
-        phone = request.form.get('phoneContact')
+        phone = request.form.get('phone')
         postalCode = request.form.get('postalCode')
-        #startDate = request.form.get('startDate') # poner que tiene que ser antes que el endDate
-        #endDate = request.form.get('endDate')
+        #email = request.form.get('email')
+        startDate = request.form.get('startDate') # poner que tiene que ser antes que el endDate
+        endDate = request.form.get('endDate')
         
-        if phone is None:
-            flash('Phone is None', category='error')
-        elif not phone.isdigit():
+        if not phone.isdigit():
             flash('Phone number must be an integer', category='error')
-        else:
-            flash('Phone is correct', category='success')
-            
-        if postalCode is None:
-            flash('postalCode is None', category='error')
         elif not postalCode.isdigit():
-            flash('postalCode must be an integer', category='error')
+            flash('Postal code must be an integer', category='error')
+        elif startDate=='':
+            flash('Start Date hasn\'t been selected', category='error') # startDate tiene que ser antes de endDate, y tiene que ser a partir del día actual
+        elif endDate=='':
+            flash('End Date hasn\'t been selected', category='error') # endDate tiene que ser después de startDate, y podemos indicar que sea hasta un máximo de 1 año
         else:
-            flash('postalCode is correct', category='success')
+            flash('Your form has been successfully created. An email/phone message will be sent to you as soon as possible with possible dates', category='success')
             
     return render_template("volunteers.html", user=current_user)
 

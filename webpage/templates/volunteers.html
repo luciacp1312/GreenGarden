@@ -9,43 +9,53 @@
   <p>Some text introducing the volunteer option Some text introducing the volunteer option Some text introducing the volunteer option Some text introducing the volunteer option Some text introducing the volunteer option Some text introducing the volunteer option Some text introducing the volunteer option Some text introducing the volunteer option</p>
   </br></br>
 
-  <form>
-    <div class="form-row">
-      <div class="col-md-8 mb-3">
-        <label for="companyName">Company/Institution name or person in charge</label>
-        <input type="text" class="form-control" id="companyName" placeholder="Enter a name" required>
-      </div>
+  <div class="form-row">
+    <div class="col-md-8 mb-3">
+      <label for="companyName">Company/Institution name or person in charge</label>
+      <input type="text" class="form-control" id="companyName" placeholder="Enter a name" required>
     </div>
-    <div class="form-row">
-      <div class="col-md-4 mb-3">
-        <label for="emailContact">Email contact</label>
-        <input type="email" class="form-control" id="emailContact" placeholder="Enter an email" required>
-      </div>
-      <div class="col-md-4 mb-3">
-        <label for="phoneContact">Phone contact</label>
-        <input type="text" class="form-control" id="phoneContact" placeholder="Enter a phone number" required>
-        <label for="phoneContact" style="color:grey">The phone must include the country code number, but without '+'</label>
-      </div>
- <!--style="position: absolute; left: 0; top: 0;"-->
-
-
+  </div>
+  <div class="form-row">
+    <div class="col-md-4 mb-3">
+      <label for="phone">Phone contact</label>
+      <input type="text" class="form-control" id="phone" name="phone" placeholder="Enter phone" required/>
+      <label for="phoneContact" style="color:grey">The phone must include the country code number, but without '+'</label>
     </div>
-    <div class="form-row">
-      <div class="col-md-3 mb-3">
-        <label for="city">City</label>
-        <input type="text" class="form-control" id="city" placeholder="City" required>
-      </div>
-      <div class="col-md-3 mb-3">
-        <label for="country">Country</label>
-        <input type="text" class="form-control" id="country" placeholder="Country" required>
-      </div>
-      <div class="col-md-2 mb-3">
-        <label for="postalCode">Postal Code</label>
-        <input type="text" class="form-control" id="postalCode" placeholder="Postal code" required>
-      </div>
+    <div class="col-md-4 mb-3">
+      <label for="email">Email contact</label>
+      <input type="email" class="form-control" id="email" name="email" placeholder="Enter email" required/>
     </div>
-    </br>
-    <h4>Available dates</h4>
+  </div>
+  <div class="form-row">
+    <div class="col-md-3 mb-3">
+      <label for="city">City</label>
+      <input type="text" class="form-control" id="city" name="city" placeholder="Enter city" required/>
+    </div>
+    <div class="col-md-3 mb-3">
+      <label for="country">Country</label>
+      <input type="text" class="form-control" id="country" name="country" placeholder="Enter country" required/>
+    </div>
+    <div class="col-md-2 mb-3">
+      <label for="postalCode">Postal Code</label>
+      <input type="text" class="form-control" id="postalCode" name="postalCode" placeholder="Enter postal code" required/>
+    </div>
+  </div>
+  </br>
+  <h4>Available dates</h4>
+  <div class="form-row">
+    <div class="col-md-4 mb-3">
+      <label for="startDate">Start date</label>
+      <input type="date" class="form-control" id="startDate" name="startDate"/>
+    </div>
+    <div class="col-md-4 mb-3">
+      <label for="endDate">End date</label>
+      <input type="date" class="form-control" id="endDate" name="endDate"/>
+    </div>
+  </div>
+  <p style="color:grey">The dates above are an orientation range for us to assign you an appropriate date for the volunteering.
+    In case you don't fulfill them, the next available will be assigned to you</p>
+  <button class="btn" style="background-color:#254D32; color:#EAF5EB" type="submit">Submit form</button>
+<!--
     <div class="form-row">
       <div class="col-md-4 mb-4">
         <label for="startDate">Start Date</label>
@@ -71,6 +81,6 @@
       </div>
     </div>
     <button class="btn" style="background-color:#254D32; color:#EAF5EB" type="submit">Submit form</button>
-  </form>
+  -->
 </form>
   {% endblock %}
