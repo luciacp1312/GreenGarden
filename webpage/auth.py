@@ -7,7 +7,6 @@ from . import db   ##means from __init__.py import db
 # Using Blueprint, we don't need to have all the views in one file, we can split them in multiple files
 auth = Blueprint('auth', __name__)
 
-
 @auth.route('/login', methods=['GET', 'POST']) # GET and POST are requests sent to our server
 def login():
     if request.method == 'POST':

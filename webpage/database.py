@@ -9,6 +9,20 @@ class User(db.Model, UserMixin): # UserMixin is needed to access all the informa
     email = db.Column(db.String(150), unique=True) # Type, Uniqueness
     password = db.Column(db.String(150))
     username = db.Column(db.String(150))
+    volunteers = db.relationship('Volunteer') 
+    
+class Volunteer(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(150))
+    email = db.Column(db.String(150))
+    phone = db.Column(db.String(15))
+    city = db.Column(db.String(100))
+    country = db.Column(db.String(100))
+    postalCode = db.Column(db.String(10))
+    startDate = db.Column(db.Date)
+    endDate = db.Column(db.Date)
+    consider = db.Column(db.String(250))
+    userId = db.Column(db.Integer, db.ForeignKey('user.id'))
     
     # 1 user can have 0 or more notes: 1-M relationship
 
