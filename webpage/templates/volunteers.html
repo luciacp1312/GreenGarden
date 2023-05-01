@@ -2,20 +2,21 @@
 {% extends "base.html" %} {% block title %}Volunteers{% endblock %}
   {% block content %} <!-- This way, the content is center as we defined in base.html -->
 
-  <form method="POST">
+  <form method="POST" style="text-align:center">
   </br>
   <h2 align="center">Volunteers</h2>
   </br></br>
-  <p>Some text introducing the volunteer option Some text introducing the volunteer option Some text introducing the volunteer option Some text introducing the volunteer option Some text introducing the volunteer option Some text introducing the volunteer option Some text introducing the volunteer option Some text introducing the volunteer option</p>
+  <p style="background-color: #f0f0f0; border: 1px solid #ccc; padding: 20px; border-radius: 10px; font-size: 18px;">The Volunteers section has been adopted in the Green Garden for users to come and help the garden, taking care of the vegetables and fruits as well as the installations. This is a great interactive activity suitable for people of all ages, especially children and elderly individuals.</p>
   </br></br>
 
-  <div class="form-row">
+  <div class="form-row" style="display: flex; justify-content: center; align-items: center;">
     <div class="col-md-8 mb-3">
       <label for="companyName">Company/Institution name or person in charge</label>
       <input type="text" class="form-control" id="companyName" name="companyName" placeholder="Enter a name" required>
     </div>
   </div>
-  <div class="form-row">
+
+  <div class="form-row" style="display: flex; justify-content: center;">
     <div class="col-md-4 mb-3">
       <label for="phone">Phone contact</label>
       <input type="text" class="form-control" id="phone" name="phone" placeholder="Enter phone" required/>
@@ -26,7 +27,8 @@
       <input type="email" class="form-control" id="email" name="email" placeholder="Enter email" required/>
     </div>
   </div>
-  <div class="form-row">
+
+  <div class="form-row" style="display: flex; justify-content: center; align-items: center;">
     <div class="col-md-3 mb-3">
       <label for="city">City</label>
       <input type="text" class="form-control" id="city" name="city" placeholder="Enter city" required/>
@@ -41,8 +43,9 @@
     </div>
   </div>
   </br>
-  <h4>Available dates</h4>
-  <div class="form-row">
+
+  <h4 style="display: flex; justify-content: center; align-items: center;">Available dates</h4>
+  <div class="form-row" style="display: flex; justify-content: center; align-items: center;">
     <div class="col-md-4 mb-3">
       <label for="startDate">Start date</label>
       <input type="date" class="form-control" id="startDate" name="startDate"/>
@@ -54,7 +57,8 @@
   </div>
   <p style="color:grey">The dates above are an orientation range for us to assign you an appropriate date for the volunteering.
     In case you don't fulfill them, the next available will be assigned to you</p>
-  <div class="form-row">
+  
+    <div class="form-row" style="display: flex; justify-content: center; align-items: center;">
     <div class="col-md-8 mb-4">
       <label for="consider">Considerations</label>
       <input type="text" class="form-control" id="consider" name="consider" placeholder="Things to consider: diseases, medical conditions...">
@@ -69,9 +73,6 @@
       </div>
     </div>
   <button class="btn" style="background-color:#254D32; color:#EAF5EB" type="submit">Submit form</button>
-<!--
-    
-    <button class="btn" style="background-color:#254D32; color:#EAF5EB" type="submit">Submit form</button>
-  -->
+  </br></br></br>
 </form>
   {% endblock %}
