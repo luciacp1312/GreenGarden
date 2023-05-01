@@ -4,7 +4,7 @@ from .database import Request
 import uuid
 #from .database import classIWantToImport
 from . import db
-from datetime import datetime
+from datetime import datetime, time
 
 views = Blueprint('views', __name__)
 
@@ -49,40 +49,55 @@ def volunteers():
         endDate_str = request.form.get('endDate')
         consider = request.form.get('consider')
         send = False
+        afterToday = True
            
-        startDate = ''
-        endDate = ''
+        startDate = None
+        endDate = None
         
         try:
             phone_int = int(phone)
             postalCode_int = int(postalCode)
         except ValueError:
+            send = False
             flash('Phone number and postal code must be integers', category='error')
         else:
             if startDate_str:
                 try:
-                    startDate = datetime.strptime(startDate_str, '%Y-%m-%d').date()
+                    startDate = datetime.strptime(startDate_str, '%Y-%m-%d')
                 except ValueError:
                     flash('Invalid start date format', category='error')
+                    send = False
                 else:
-                    startDate = datetime.now().date()
+                    today = datetime.now().date()
+                    if startDate.date() < today:
+                        send = False
+                        afterToday = False
+                        flash('Start date must be after today', category='error')
+                    else:
+                        send = True
+                        startDate = datetime.combine(startDate.date(), time.min) # convert to datetime.datetime object
             else:
-                startDate = datetime.now().date()
+                send = True
+                startDate = datetime.now()
 
             if endDate_str:
                 try:
-                    endDate = datetime.strptime(endDate_str, '%Y-%m-%d').date()
+                    endDate = datetime.strptime(endDate_str, '%Y-%m-%d')
                 except ValueError:
+                    send = False
                     flash('Invalid end date format', category='error')
                 else:
-                    endDate = datetime.now().date()
-            else:
-                endDate = startDate
-            
-            if startDate > endDate:
-                flash('The start date must be the same or before the end date', category='error')
+                    if endDate.date() < startDate.date():
+                        send = False
+                        flash('End date must be after start date', category='error')
+                    else:
+                        send = True
             else:
                 send = True
+                endDate = startDate
+            
+        if not afterToday:
+            send = False 
             
         if send:
             new_petition = Request(id=str(uuid.uuid4()), name=name, email=email, phone=phone, city=city, country=country, postalCode=postalCode, startDate=startDate, endDate=endDate, consider=consider, userId=current_user.id)
